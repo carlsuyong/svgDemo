@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<style>
+			.mytest {
+				width: 350px;
+				height: 350px;
+				fill: #00f;
+				background-color: rgba(0, 0, 0, 0.5);
+				position: relative;
+			}
+			.posiablote{
+				position: absolute;
+				/*top: 50%;
+				left: 50%;*/
+				/*transform: translate(50%, 50%);*/
+			}
+			/*点击时的样式*/
+			
+			.mytest:hover {
+				fill: #0f0;
+				/*transform: rotate(30deg);*/
+			}
+		</style>
+		<svg class="mytest">
+			<use class='posiablote' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+		</svg>
+		<svg class="mytest">
+			<use xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+		</svg>
+		<svg class="mytest">
+			<use xlink:href="selectSvg.svg#leanloop-box-svg" />
+		</svg>
+		<svg class="mytest">
+			<use xlink:href="selectSvg.svg#leanloop-box1-svg" />
+		</svg>
+		<svg class="mytest">
+			<use xlink:href="selectSvg.svg#leanloop-box2-svg" />
+		</svg>
+		<svg class="mytest">
+			<use xlink:href="selectSvg.svg#leanloop-box3-svg" />
+		</svg>
+	</body>
+
+</html>

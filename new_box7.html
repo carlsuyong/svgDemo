@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*点击时的样式*/
+			
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			#tsd {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.water {
+				fill: red;
+				stroke-dasharray: 1000;
+				stroke-dashoffset: 1000;
+				animation: run 10s linear infinite;
+			}
+			
+			@keyframes dash {
+				to {
+					stroke-dashoffset: 0;
+				}
+			}
+			
+			@keyframes run {
+				from {
+					stroke-dasharray: 20, 5;
+				}
+				to {
+					stroke-dasharray: 40, 5;
+				}
+			}
+			
+			.starStyle {
+				animation: starAnim 4s linear infinite;
+			}
+			
+			@keyframes starAnim {
+				0% {
+					fill: red;
+				}
+				100% {
+					fill: blue;
+				}
+			}
+			/*.transform{
+				transform: rotate(45deg);
+			}*/
+			
+			.mysolid {
+				background-color: red;
+				stroke: black
+			}
+			
+			.position {
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 1000;
+			}
+		</style>
+	</head>
+
+	<body id='body'>
+
+		<script src="js/snap.svg-min.js"></script>
+		<script src="js/mqttws31.js"></script>
+		<svg id='tsd' viewbox='0 0 1366 768'>
+			<defs>
+
+			</defs>
+			<!--四电热炉-->
+
+			<polyline class="pipeline" points="270 190,270 260" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="330 190,330 255" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="330 265,330 310" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="490 520,600 520,600 670" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="325 520,215 520,215 595" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="215 605,215 670" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="630 190,630 260" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="690 190,690 255" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="690 265,690 310" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="115 450,1300 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="105 450,0 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="pipeline" points="105 450,0 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+
+			<polyline class="pipeline" points="990 190,990 260,50 260,50 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1050 190,1050 310,110 310,110 670" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="160 450,160 600,330 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="495 600,665 600,665 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="0 670,1300 670" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="900 520,830 520,830 670" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="830 595,900 595" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="940 520,1300 520" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1010 520,1010 670," style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="940 595,1010 595" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<use class='transform' x='100' y='-700' transform="scale(0.6) rotate(90)" width='300' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+			<use class='transform' x='100' y='-1300' transform="scale(0.6) rotate(90)" width='300' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+			<use class='transform' x='100' y='-1900' transform="scale(0.6) rotate(90)" width='300' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+			<use class='transform' x='400' y='500' transform="scale(0.8)" width='300' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+			<!--右下三开关-->
+
+			<use class='transform' x='1500' y='990' transform="scale(0.5)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
+			<use class='transform' x='1500' y='1140' transform="scale(0.5)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
+			<use class='transform' x='1500' y='1290' transform="scale(0.5)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
+
+		</svg>
+	</body>
+	<script>
+		var check = [{
+			SequenceNo: 'startLeft1',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft2',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft3',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft5',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft6',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft7',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft8',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox1',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox2',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox3',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox5',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox6',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox7',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox8',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch1',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch2',
+			WorkState: 0
+		}, {
+			SequenceNo: 'switch3',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch5',
+			WorkState: 1
+		}]
+		console.log('1111', JSON.stringify(check))
+		// mqtt接收信息
+		var mqttData = ''
+		var lastTimeValue = mqttData;
+		var wsbroker = "mqtt.leanloop.net"; //mqtt websocket enabled broker
+		var wsport = 15675; // port for above
+
+		var client = new Paho.MQTT.Client(wsbroker, wsport, "/ws",
+			"myclientid_" + parseInt(Math.random() * 100, 10));
+
+		client.onConnectionLost = function(responseObject) {
+			console.log(responseObject.errorMessage)
+		};
+		// 接收信息返回值
+		client.onMessageArrived = function(message) {
+			//			console.log('5555',message.payloadString)
+			mqttData = JSON.parse(message.payloadString)
+			console.log(mqttData)
+			for(var i in mqttData) {
+				for(var j in check) {
+					//1运转  0停止运转
+					if(mqttData[i].SequenceNo == check[j].SequenceNo && mqttData[i].WorkState == 1) {
+						var checkBox = Snap("#" + mqttData[i].SequenceNo);
+						// 判断是否是文本类型
+						if(checkBox.type == 'text') {
+							console.log(checkBox)
+							checkBox.node.innerHTML = '运转正常'
+							checkBox.attr({
+								fill: '#669ccd'
+							})
+						} else {
+							checkBox.attr({
+								'xlink:href': '#leanloop-circle-svg'
+							})
+						}
+
+					}
+					if(mqttData[i].SequenceNo == check[j].SequenceNo && mqttData[i].WorkState == 0) {
+						var checkBox = Snap("#" + mqttData[i].SequenceNo);
+						// 判断是否是文本类型
+						if(checkBox.type == 'text') {
+							checkBox.node.innerHTML = '运转故障'
+							checkBox.attr({
+								fill: 'red'
+							})
+						} else {
+							checkBox.attr({
+								'xlink:href': '#leanloop-nocircle-svg',
+								fill: 'red'
+							})
+						}
+					}
+				}
+
+			}
+		};
+
+		var options = {
+			timeout: 3,
+			userName: "test",
+			password: "test",
+			onSuccess: function() {
+				client.subscribe('home/mqtt', {
+					qos: 0
+				});
+			},
+			onFailure: function(message) {
+				console.log(message.errorMessage);
+			}
+		};
+
+		if(location.protocol == "https:") {
+			options.useSSL = true;
+		}
+
+		client.connect(options);
+
+		//获取svg id
+		var svg = Snap("#tsd");
+		var myMatrix = new Snap.Matrix();
+		var s2 = Snap("#startLeft1");
+
+		//进水箱
+		var inletChestLeft = Snap('#inletChestLeft')
+		var inletChestRight = Snap('#inletChestRight')
+
+		inletChestRight.mouseover(function() {
+			//事件处理代码
+			//生成节点
+			var c1 = svg.paper.text(960, 25, '这是详情介绍')
+			var c2 = svg.paper.rect(950, 0, 300, 200)
+			c2.attr({
+				fill: 'white',
+				fillOpacity: .8,
+				stroke: "gray"
+			})
+			var g = svg.paper.g()
+			g.attr({
+				id: 'hover'
+			})
+			g.add(c2, c1)
+			//删除节点
+			var hover = Snap('#hover')
+			hover.mouseout(function() {
+				hover.remove()
+			})
+		});
+
+		inletChestLeft.click(function() {
+			//生成节点
+			var c1 = svg.paper.text(710, 25, '这是详情介绍')
+			var c2 = svg.paper.rect(700, 0, 300, 200)
+			c2.attr({
+				fill: 'white',
+				fillOpacity: .8,
+				stroke: "gray"
+			})
+			var g = svg.paper.g()
+			g.attr({
+				id: 'hoverHidden'
+			})
+			g.add(c2, c1)
+			//删除节点
+			var hoverHidden = Snap('#hoverHidden')
+			hoverHidden.click(function() {
+				hoverHidden.remove()
+			})
+		})
+
+		//		s2.click(function() {
+		//			var checkBox = Snap("#checkBox1");
+		//			checkBox.attr({'xlink:href':'#leanloop-nocircle-svg'})
+		//		})
+		//		console.log(s1, s2)
+		//		var circle_1 = s.circle(200, 200, 140);
+		//		var circle_2 = s.circle(150, 200, 140);
+
+		//		var circles = s.group(circle_1, circle_2);
+		//
+		//		s2.attr({
+		//			fill: 'coral',
+		//			fillOpacity: .6
+		//		});
+		//		myMatrix.translate(100,0);
+		//		s2.transform(myMatrix)
+	</script>
+
+</html>

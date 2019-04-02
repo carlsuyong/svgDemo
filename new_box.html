@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/commen.css" />
+	</head>
+
+	<body id='body'>
+		<script type="text/javascript" src="js/jquery-2.1.0.js"></script>
+		<script src="js/snap.svg-min.js"></script>
+		<script src="js/mqttws31.js"></script>
+		<svg id='tsd' viewbox='0 0 1366 768'>
+			<defs>
+				<g id='leanloop-circle-svg'>
+					<path stroke="null" d="m19.09382,10.50608l11.48162,-6.11201l12.90522,-3.32407l12.61121,0l12.61121,3.32407l11.20309,6.11201l9.53191,9.42077l6.1586,11.10578l3.37331,12.48443l0,13.03589l-3.37331,12.2087l-6.1586,11.36619l-70.34427,-69.62175z" fill-rule="nonzero" fill="#666" id="svg_2" />
+					<path stroke="null" d="m3.68184,68.76164l-3.65184,-12.2087l0,-13.03589l3.65184,-12.48443l6.43713,-11.10578l69.78721,69.08561l-11.20309,6.9392l-12.61121,3.04835l-12.61121,0l-12.90522,-3.04835l-11.48162,-6.9392l-8.97485,-8.88462l-6.43713,-11.36619z" fill-rule="nonzero" fill="#ccc" id="svg_3" />
+					<path stroke="null" d="m10.11897,19.92685l8.97485,-9.42077l70.34427,69.62175l-9.53191,8.88462l-69.78721,-69.08561z" fill-rule="nonzero" fill="#999" id="svg_4" />
+					<path stroke="#000" d="m3.68184,68.76164l-3.65184,-12.2087l0,-13.03589l3.65184,-12.48443l6.43713,-11.10578l8.97485,-9.42077l11.48162,-6.11201l12.90522,-3.32407l12.61121,0l12.61121,3.32407l11.20309,6.11201l9.53191,9.42077l6.1586,11.10578l3.37331,12.48443l0,13.03589l-3.37331,12.2087l-6.1586,11.36619l-9.53191,8.88462l-11.20309,6.9392l-12.61121,3.04835l-12.61121,0l-12.90522,-3.04835l-11.48162,-6.9392l-8.97485,-8.88462l-6.43713,-11.36619" stroke-width="0.36px" fill="none" id="svg_5" />
+					<path stroke="#000" d="m8.44779,66.54049l-2.52224,-10.81473l0,-11.65724l2.52224,-11.09046l5.88007,-9.71181l8.40232,-8.05744l10.08897,-5.54523l11.21856,-3.32407l11.48162,0l11.21856,3.32407l9.81044,5.54523l7.84526,8.05744l5.88007,9.71181l3.35783,11.09046l0,11.65724l-3.35783,10.81473l-5.88007,10.539l-7.84526,7.76639l-9.81044,5.83628l-11.21856,3.04835l-11.48162,0l-11.21856,-3.04835l-10.08897,-5.83628l-8.40232,-8.31785l-5.88007,-9.98754z" stroke-width="0.36px" fill-rule="nonzero" fill="#6a8dbc" id="svg_6" />
+					<path stroke="null" d="m44.87331,53.5046l-0.83559,-4.16658l-28.30173,-17.20247l1.11412,-2.22116l29.15279,15.25704l4.19342,-1.10292l17.37717,-27.74147l2.24371,1.10292l-15.41199,29.13544l1.11412,4.16658l28.0232,17.4782l-1.11412,1.93011l-29.15279,-15.53277l-4.75048,1.11824l-17.37717,27.46574l-1.40812,-0.84251l15.13346,-28.84439z" fill-rule="nonzero" id="svg_7" />
+					<path stroke="#b2b2b2" d="m16.85011,29.91439l29.15279,15.25704l4.19342,-1.10292l17.37717,-27.74147l2.24371,1.10292l-15.41199,29.13544l1.11412,4.16658l28.0232,17.4782l-1.11412,1.93011l-29.15279,-15.53277l-4.75048,1.11824l-17.37717,27.46574" stroke-width="0.36px" fill="none" id="svg_8" />
+					<path stroke="null" d="m68.13055,15.20881l2.80077,1.11824l-0.55706,1.10292l-2.80077,-1.10292l0.55706,-1.11824z" fill-rule="nonzero" fill="#fff" id="svg_9" />
+					<path stroke="null" d="m29.18279,82.34899l2.52224,1.39397l-1.12959,1.10292l-1.94971,-1.65438l0.55706,-0.84251z" fill-rule="nonzero" fill="#fff" id="svg_10" />
+					<path stroke="null" d="m14.32787,31.58409l1.40812,-2.77262l1.11412,1.10292l-1.68665,2.22116l-0.83559,-0.55146z" fill-rule="nonzero" fill="#fff" id="svg_11" />
+					<path stroke="null" d="m82.42842,70.14029l1.11412,-1.93011l1.40812,0.55146l-1.40812,1.94543l-1.11412,-0.56678z" fill-rule="nonzero" fill="#fff" id="svg_12" />
+					<animateTransform attributeType="auto" attributeName="transform" begin="0s" dur="2s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+				</g>
+				<g id='leanloop-nocircle-svg'>
+					<path stroke="null" d="m19.09382,10.50608l11.48162,-6.11201l12.90522,-3.32407l12.61121,0l12.61121,3.32407l11.20309,6.11201l9.53191,9.42077l6.1586,11.10578l3.37331,12.48443l0,13.03589l-3.37331,12.2087l-6.1586,11.36619l-70.34427,-69.62175z" fill-rule="nonzero" fill="#666" id="svg_2" />
+					<path stroke="null" d="m3.68184,68.76164l-3.65184,-12.2087l0,-13.03589l3.65184,-12.48443l6.43713,-11.10578l69.78721,69.08561l-11.20309,6.9392l-12.61121,3.04835l-12.61121,0l-12.90522,-3.04835l-11.48162,-6.9392l-8.97485,-8.88462l-6.43713,-11.36619z" fill-rule="nonzero" fill="#ccc" id="svg_3" />
+					<path stroke="null" d="m10.11897,19.92685l8.97485,-9.42077l70.34427,69.62175l-9.53191,8.88462l-69.78721,-69.08561z" fill-rule="nonzero" fill="#999" id="svg_4" />
+					<path stroke="#000" d="m3.68184,68.76164l-3.65184,-12.2087l0,-13.03589l3.65184,-12.48443l6.43713,-11.10578l8.97485,-9.42077l11.48162,-6.11201l12.90522,-3.32407l12.61121,0l12.61121,3.32407l11.20309,6.11201l9.53191,9.42077l6.1586,11.10578l3.37331,12.48443l0,13.03589l-3.37331,12.2087l-6.1586,11.36619l-9.53191,8.88462l-11.20309,6.9392l-12.61121,3.04835l-12.61121,0l-12.90522,-3.04835l-11.48162,-6.9392l-8.97485,-8.88462l-6.43713,-11.36619" stroke-width="0.36px" fill="none" id="svg_5" />
+					<path stroke="#000" d="m8.44779,66.54049l-2.52224,-10.81473l0,-11.65724l2.52224,-11.09046l5.88007,-9.71181l8.40232,-8.05744l10.08897,-5.54523l11.21856,-3.32407l11.48162,0l11.21856,3.32407l9.81044,5.54523l7.84526,8.05744l5.88007,9.71181l3.35783,11.09046l0,11.65724l-3.35783,10.81473l-5.88007,10.539l-7.84526,7.76639l-9.81044,5.83628l-11.21856,3.04835l-11.48162,0l-11.21856,-3.04835l-10.08897,-5.83628l-8.40232,-8.31785l-5.88007,-9.98754z" stroke-width="0.36px" fill-rule="nonzero" fill="#6a8dbc" id="svg_6" />
+					<path stroke="null" d="m44.87331,53.5046l-0.83559,-4.16658l-28.30173,-17.20247l1.11412,-2.22116l29.15279,15.25704l4.19342,-1.10292l17.37717,-27.74147l2.24371,1.10292l-15.41199,29.13544l1.11412,4.16658l28.0232,17.4782l-1.11412,1.93011l-29.15279,-15.53277l-4.75048,1.11824l-17.37717,27.46574l-1.40812,-0.84251l15.13346,-28.84439z" fill-rule="nonzero" id="svg_7" />
+					<path stroke="#b2b2b2" d="m16.85011,29.91439l29.15279,15.25704l4.19342,-1.10292l17.37717,-27.74147l2.24371,1.10292l-15.41199,29.13544l1.11412,4.16658l28.0232,17.4782l-1.11412,1.93011l-29.15279,-15.53277l-4.75048,1.11824l-17.37717,27.46574" stroke-width="0.36px" fill="none" id="svg_8" />
+					<path stroke="null" d="m68.13055,15.20881l2.80077,1.11824l-0.55706,1.10292l-2.80077,-1.10292l0.55706,-1.11824z" fill-rule="nonzero" fill="#fff" id="svg_9" />
+					<path stroke="null" d="m29.18279,82.34899l2.52224,1.39397l-1.12959,1.10292l-1.94971,-1.65438l0.55706,-0.84251z" fill-rule="nonzero" fill="#fff" id="svg_10" />
+					<path stroke="null" d="m14.32787,31.58409l1.40812,-2.77262l1.11412,1.10292l-1.68665,2.22116l-0.83559,-0.55146z" fill-rule="nonzero" fill="#fff" id="svg_11" />
+					<path stroke="null" d="m82.42842,70.14029l1.11412,-1.93011l1.40812,0.55146l-1.40812,1.94543l-1.11412,-0.56678z" fill-rule="nonzero" fill="#fff" id="svg_12" />
+				</g>
+				<g id="leanloop-box3-svg">
+					<path stroke="#000" id="svg_1" fill="#0ff" fill-rule="nonzero" stroke-width="0.24px" d="m0.36001,49.94001l3.58399,-18.25399l10.52414,-16.50243l16.84213,-10.31187l18.62974,-3.5117l18.62974,3.5117l16.84213,10.31187l10.52414,16.50243l3.58399,18.25399l-3.58399,18.25399l-10.52414,16.50243l-16.84213,10.31187l-18.62974,3.5117l-18.62974,-3.5117l-16.84213,-10.31187l-10.52414,-16.50243l-3.58399,-18.25399z" />
+					<path stroke="#000" id="svg_2" fill="none" stroke-width="0.24px" d="m25.09743,9.40515l0,81.06971l74.42258,-40.53485l-74.42258,-40.53485" />
+					<animateTransform attributeType="auto" attributeName="transform" begin="0s" dur="2s" type="rotate" from="0 50 50" to="360 50 50" repeatCount="indefinite" />
+				</g>
+				<filter x="0" y="0" width="1" height="1" id="solid">
+					<feFlood flood-color="yellow" />
+					<feComposite in="SourceGraphic" />
+				</filter>
+			</defs>
+			<polyline class="pipeline" points="20 20,120 20,120 50,20 50,20 20" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<polyline class="pipeline" points="20 60,120 60,120 90,20 90,20 60" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<text x="30" y="40" font-family="Verdana" font-size="11" fill="gray">室外温度：28℃</text>
+			<text x="30" y="80" font-family="Verdana" font-size="11" fill="gray">室外湿度：60%</text>
+			<!--左上四风扇-->
+			<use x="100" y="-55" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox1' x="460" y="390" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft1' x="105" y="210" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-A</text>
+			<polyline class="pipeline" points="100 100,205 100,205 220,100 220,100 100" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start2' x="220" y="-55" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox2' x="860" y="390" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft2' x="225" y="210" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-B</text>
+			<polyline class="pipeline" points="220 100,325 100,325 220,220 220,220 100" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start3' x="340" y="-55" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox3' class="" x="1260" y="390" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft3' x="345" y="210" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-C</text>
+			<polyline class="pipeline" points="340 100,445 100,445 220,340 220,340 100" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start4' x="460" y="-55" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox4' class="" x="1665" y="390" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft4' x="465" y="210" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-D</text>
+			<polyline class="pipeline" points="460 100,565 100,565 220,460 220,460 100" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<!--左上四风扇线条-->
+			<polyline class="pipeline" points="130 325,130 220" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="130 325,130 220" style="fill:red;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="130 330,130 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="130 330,130 370" style="fill:red;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="175 220,175 320" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="175 220,175 320" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="175 335,175 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="175 370,175 335" style="fill:red;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="250 270,250 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="250 270,250 220" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="250 290,250 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="250 290,250 370" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="295 220,295 320" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="295 220,295 320" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="295 338,295 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="295 370,295 338" style="fill:red;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="370 270,370 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="370 270,370 220" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="370 290,370 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="370 290,370 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="415 320,415 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="415 320,415 220" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="415 338,415 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="415 370,415 338" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="490 270,490 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="490 270,490 220" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="490 290,490 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="490 290,490 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="535 220,535 285" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="535 220,535 285" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="535 285,535 370" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="535 370,535 285" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<!--左部分右侧折线-->
+			<polyline class="pipeline" points="178 280,620 280,620 540,370 540" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="178 280,620 280,620 540,370 540" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="30 678,30 610" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="30 610,30 545" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="30 545,30 420" style="fill:transparent;stroke:white;stroke-width:5" />
+			<!--<polyline class="pipeline" points="30 390,30 328,490 328" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="30 390,30 328,175 328" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="175 328,490 328" style="fill:transparent;stroke:white;stroke-width:5" />
+
+			<!--<polyline class="water" id="water" points="30 678,30 610" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<!--<polyline class="water" id="water" points="30 610,30 545" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="water" id="water" points="30 545,30 420" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="30 390,30 328,490 328" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="370 560,620 560" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="370 560,620 560" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<!--<polyline class="water" id="water" points="30 390,30 328,175 328" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="water" id="water" points="175 328,490 328" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--右侧圆水流线-->
+			<polyline class="pipeline" points="370 590,555 590,555 620" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="370 590,555 590,555 620" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="370 650,555 650,555 620" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="370 650,555 650,555 620" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="555 620,1300 620" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="555 620,1300 620" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1300 720,430 720,430 680,400 680" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="1300 720,430 720,430 680,400 680" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--左下四风扇-->
+			<use id='start1' x="100" y="215" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox5' x="460" y="1295" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft5' x="105" y="480" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-E</text>
+			<polyline class="pipeline" points="100 370,205 370,205 490,100 490,100 370" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start2' x="220" y="215" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox6' class="" x="860" y="1295" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft6' x="225" y="480" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-F</text>
+			<polyline class="pipeline" points="220 370,325 370,325 490,220 490,220 370" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start3' x="340" y="215" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox7' class="" x="1260" y="1295" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft7' x="345" y="480" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-G</text>
+			<polyline class="pipeline" points="340 370,445 370,445 490,340 490,340 370" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<use id='start4' x="460" y="215" width='500' height='800' xlink:href="selectSvg.svg#leanloop-fan-svg" />
+			<use id='checkBox8' class="" x="1660" y="1295" transform="scale(0.3)" xlink:href="#leanloop-circle-svg" />
+			<text id='startLeft8' x="465" y="480" font-family="Verdana" font-size="11" fill="gray">空气源热泵PK01-H</text>
+			<polyline class="pipeline" points="460 370,565 370,565 490,460 490,460 370" style="fill:transparent;stroke:gray;stroke-width:1" />
+
+			<!--右上集装箱-->
+
+			<use id='inletChestLeft' x="770" y="-100" width='400' height='650' xlink:href="selectSvg.svg#leanloop-box-svg" />
+			<polyline class="pipeline" points="770 30,912 30,912 130,770 130,770 30" style="fill:none;stroke:gray;stroke-width:1" />
+			<text x="782" y="120" font-family="Verdana" font-size="12" fill="gray">固体电蓄热E.Sto.-1-1</text>
+
+			<polyline class="pipeline" points="810 130,810 220,1115 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="810 130,810 220,1115 220" style="fill:none;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="1057 200,870 200,870 130" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="1057 200,870 200,870 130" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<use id='inletChestRight' x="1020" y="-100" width='400' height='650' xlink:href="selectSvg.svg#leanloop-box-svg" />
+			<polyline class="pipeline" points="1021 30,1163 30,1163 130,1021 130,1021 30" style="fill:none;stroke:gray;stroke-width:1" />
+			<text x="1032" y="120" font-family="Verdana" font-size="12" fill="gray">固体电蓄热E.Sto.-1-2</text>
+
+			<polyline class="pipeline" points="1060 130,1060 220" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="1060 220,1060 130" style="fill:white;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="1060 225,1060 260" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="pipeline" points="1060 270,1060 330" style="fill:transparent;stroke:white;stroke-width:5" />
+
+			<polyline class="water" id="water" points="1060 330,1060 270" style="fill:white;stroke:#669ccd;stroke-width:5" />
+			<polyline class="water" id="water" points="1060 260,1060 225" style="fill:white;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="1118 130,1118 330" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="1118 130,1118 330" style="fill:white;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="1118 263,870 263,870 330" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="pipeline" points="870 450,870 520,1060 520" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="1118 263,870 263,870 330" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="water" id="water" points="870 450,870 520,1060 520" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="pipeline" points="1060 400,1060 615" style="fill:transparent;stroke:white;stroke-width:5" />-->
+			<polyline class="water" id="water" points="1060 450,1060 555" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="water" id="water" points="1060 565,1060 618" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="810 560,1118 560,1118 450" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="810 560,1118 560,1118 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="810 618,810 450" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="pipeline" points="810 330,810 247,1060 247" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" points="810 618,810 450" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="water" points="810 330,810 247,1060 247" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--右中电螺丝-->
+			<!--<use class='transform' transform="rotate(90, 75, 75)" x="300" y="-900" width='200' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />-->
+			<use transform='scale(0.4) rotate(-90,75,75)' x='-900' y='1900' xlink:href="selectSvg.svg#leanloop-box9-svg" />
+			<use transform='scale(0.4) rotate(-90,75,75)' x='-900' y='2525' xlink:href="selectSvg.svg#leanloop-box9-svg" />
+			<polyline class="pipeline" points="750 330,930 330,930 450,750 450,750 330" style="fill:none;stroke:gray;stroke-width:1" />
+			<use x="170" y="500" width='500' height='500' xlink:href="selectSvg.svg#leanloop-box1-svg" />
+			<polyline class="pipeline" points="1000 330,1180 330,1180 450,1000 450,1000 330" style="fill:none;stroke:gray;stroke-width:1" />
+			<!--左侧圆-->
+			<polyline class="pipeline" points="208 545,30 545" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="208 545,30 545" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="208 610,30 610" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="208 610,30 610" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="208 675,30 675" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<!--<polyline class="water" id="water" points="208 675,30 675" style="fill:red;stroke:#669ccd;stroke-width:5" />-->
+			<use id='swutch1' x="0" y="-410" transform="rotate(-180, 75, 75)" width='250' height='250' xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
+			<use id='swutch2' x="0" y="-475" transform="rotate(-180, 75, 75)" width='250' height='250' xlink:href="selectSvg.svg#leanloop-box3-svg" />
+			<use id='swutch3' x="0" y="-540" transform="rotate(-180, 75, 75)" width='250' height='250' xlink:href="selectSvg.svg#leanloop-pumb2-svg" />
+			<!--右侧圆-->
+			<use id='swutch4' x="480" y="575" width='250' height='250' xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
+			<use id='swutch5' x="480" y="635" width='250' height='250' xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
+
+			<polyline class="pipeline" points="875 620,875 640" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="875 620,875 640" style="fill:red;stroke:#669ccd;stroke-width:5" />
+
+			<polyline class="pipeline" points="875 705,875 715" style="fill:transparent;stroke:white;stroke-width:5" />
+			<polyline class="water" id="water" points="875 705,875 715" style="fill:red;stroke:#669ccd;stroke-width:5" />
+			<use x="850" y="640" width='250' height='250' xlink:href="selectSvg.svg#leanloop-box2-svg" />
+			<polyline class="pipeline" points="815 640,940 640,940 705,815 705,815 640" style="fill:none;stroke:gray;stroke-width:1" />
+			<text x="820" y="700" font-family="Verdana" font-size="11" fill="gray">自动加药装置ECH-1-4</text>
+			<!--<use x="650" y="615" width='250' height='250' xlink:href="selectSvg.svg#leanloop-box8-svg" />-->
+
+			<!--<rect x="300" y="390" rx="0" ry="0" width="700" height="9" fill="#669ccd" fill-opacity="1" stroke="#669ccd" stroke-opacity="1" />
+			<rect x="180" y="430" rx="0" ry="0" width="700" height="9" fill="#669ccd" fill-opacity="1" stroke="#669ccd" stroke-opacity="1" />-->
+
+			<!--<use x="1000" y="500" width='200' height='200' xlink:href="selectSvg.svg#leanloop-box4-svg" />-->
+			<use x='19' y='200' width='400' xlink:href="selectSvg.svg#leanloop-box10-svg" />
+			<use width='400' x='-420' y='300' transform="rotate(-90, 75, 75)" xlink:href="selectSvg.svg#leanloop-box11-svg" />
+			<use width='400' x='-480' y='760' transform="rotate(-90, 75, 75)" xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<use width='400' x='-480' y='980' transform="rotate(-90, 75, 75)" xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<use width='300' x='802' y='-85' xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<use width='300' x='862' y='-85' xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<use width='300' x='1052' y='-85' xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<use width='300' x='1110' y='-85' xlink:href="selectSvg.svg#leanloop-box12-svg" />
+			<!--刻度-->
+			<use x='220' y='335' width='370' xlink:href="selectSvg.svg#leanloop-box13-svg" />
+			<text x="80" y="580" font-family="Verdana" font-size="11" fill="gray">热媒循环泵RP-01-A</text>
+			<text x="80" y="645" font-family="Verdana" font-size="11" fill="gray">热媒循环泵RP-01-B</text>
+			<text x="80" y="710" font-family="Verdana" font-size="11" fill="gray">热媒循环泵RP-01-C</text>
+
+			<text x="440" y="625" font-family="Verdana" font-size="11" fill="gray">热媒循环泵RP-02-A</text>
+			<text x="440" y="685" font-family="Verdana" font-size="11" fill="gray">热媒循环泵RP-02-B</text>
+
+			<text x="1150" y="595" font-family="Verdana" font-size="11" fill="gray">生活热水 出水 100-RG-2000</text>
+			<text x="1150" y="710" font-family="Verdana" font-size="11" fill="gray">生活热水 回水 100-RH-2000</text>
+			<text x="775" y="440" font-family="Verdana" font-size="11" fill="gray">固体电蓄热板换PHE-1-1</text>
+			<text x="1025" y="440" font-family="Verdana" font-size="11" fill="gray">固体电蓄热板换PHE-1-2</text>
+
+			<!--温度计-->
+			<polyline points="740 155,800 155,800 175,740 175,740 155" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="745" y="169" font-family="Verdana" font-size="11" fill="gray">100℃</text>
+
+			<polyline points="890 140,950 140,950 160,890 160,890 140" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="895" y="155" font-family="Verdana" font-size="11" fill="gray">101℃</text>
+
+			<polyline points="990 155,1050 155,1050 175,990 175,990 155" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="995" y="169" font-family="Verdana" font-size="11" fill="gray">102℃</text>
+
+			<polyline points="1135 155,1195 155,1195 175,1135 175,1135 155" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="1140" y="169" font-family="Verdana" font-size="11" fill="gray">103℃</text>
+
+			<polyline points="740 300,800 300,800 320,740 320,740 300" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="745" y="314" font-family="Verdana" font-size="11" fill="gray">104℃</text>
+
+			<polyline points="880 275,940 275,940 295,880 295,880 275" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="885" y="290" font-family="Verdana" font-size="11" fill="gray">105℃</text>
+
+			<polyline points="990 300,1050 300,1050 320,990 320,990 300" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="995" y="314" font-family="Verdana" font-size="11" fill="gray">106℃</text>
+
+			<polyline points="1130 275,1190 275,1190 295,1130 295,1130 275" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="1135" y="290" font-family="Verdana" font-size="11" fill="gray">107℃</text>
+
+			<polyline points="740 475,800 475,800 495,740 495,740 475" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="745" y="490" font-family="Verdana" font-size="11" fill="gray">108℃</text>
+
+			<polyline points="880 475,940 475,940 495,880 495,880 475" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="885" y="490" font-family="Verdana" font-size="11" fill="gray">109℃</text>
+
+			<polyline points="990 475,1050 475,1050 495,990 495,990 475" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="995" y="490" font-family="Verdana" font-size="11" fill="gray">110℃</text>
+
+			<polyline points="1130 475,1190 475,1190 495,1130 495,1130 475" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="1135" y="490" font-family="Verdana" font-size="11" fill="gray">111℃</text>
+
+			<polyline points="1080 630,1140 630,1140 650,1080 650,1080 630" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="1085" y="645" font-family="Verdana" font-size="11" fill="gray">111MPa</text>
+
+			<polyline points="1080 690,1140 690,1140 710,1080 710,1080 690" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="1085" y="705" font-family="Verdana" font-size="11" fill="gray">112MPa</text>
+
+			<polyline points="530 565,590 565,590 585,530 585,530 565" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="535" y="580" font-family="Verdana" font-size="11" fill="gray">112MPa</text>
+
+			<polyline points="530 655,590 655,590 675,530 675,530 655" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="535" y="670" font-family="Verdana" font-size="11" fill="gray">113MPa</text>
+			<!--<use height='100' xlink:href="../lastSvgDemo/v2.svg#leanloop-box2-svg"></use>-->
+
+			<text x="292" y="687" font-family="Verdana" font-size="11" fill="gray">电加热器HE-01</text>
+			<text x="260" y="550" font-family="Verdana" font-size="11" fill="gray">热媒⽔箱V-01-A</text>
+
+			<polyline points="40 500,100 500,100 520,40 520,40 500" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="45" y="515" font-family="Verdana" font-size="11" fill="gray">114℃</text>
+
+			<polyline points="550 500,610 500,610 520,550 520,550 500" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="555" y="515" font-family="Verdana" font-size="11" fill="gray">115℃</text>
+		</svg>
+		<!--<div id="bg" class="bg">-->
+		<div class="sliderBar">
+			<div class="header clearBox">
+				<p class="fl">1#电制冷离心机控制系统</p>
+				<img id='close' class="close fr" src="img/close.png" />
+			</div>
+			<div class="clickHeader clearBox">
+				<p class="btnActive">启动</p>
+				<p>停止</p>
+				<p>手动</p>
+				<p>自动</p>
+			</div>
+			<div class="exitWater clearBox">
+				<p>出水温度设定点</p>
+				<p><span class="temp">6.05</span>℃</p>
+			</div>
+			<div class="table">
+				<table border="" cellspacing="" cellpadding="" rules="all">
+					<tr>
+						<td>机组开关机输出</td>
+						<td>关机</td>
+						<td>排气温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>冷机运行状态</td>
+						<td><span class="btnTemp btnGray">待机</span></td>
+						<td>冷冻水进水温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>冷机控制模式</td>
+						<td><span class="btnTemp btnGreen">远控</span></td>
+						<td>冷冻水出水温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>故障报警</td>
+						<td><span class="btnTemp btnGray">运行正常</span></td>
+						<td>冷却水进水温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>压缩机运行时间</td>
+						<td><span class="temps">6.05</span>℃</td>
+						<td>冷却水出水温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>制冷量百分比</td>
+						<td><span class="temps">6.05</span>℃</td>
+						<td>蒸发器冷媒温度</td>
+						<td><span class="temps">6.05</span>%</td>
+					</tr>
+					<tr>
+						<td>实际线电流</td>
+						<td><span class="temps">6.05</span>A</td>
+						<td>蒸发器冷媒压力</td>
+						<td><span class="temps">105.5</span>KPa</td>
+					</tr>
+					<tr>
+						<td>实际线电压</td>
+						<td><span class="temps">6.05</span>V</td>
+						<td>冷凝器冷媒温度</td>
+						<td><span class="temps">6.05</span>℃</td>
+					</tr>
+					<tr>
+						<td>线压电百分比</td>
+						<td><span class="temps">6.05</span>V</td>
+						<td>冷凝器冷媒压力</td>
+						<td><span class="temps">101.5</span>KPa</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<!--</div>-->
+
+	</body>
+	<script>
+		var check = [{
+			SequenceNo: 'startLeft1',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft2',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft3',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft5',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft6',
+			WorkState: 1
+		}, {
+			SequenceNo: 'startLeft7',
+			WorkState: 0
+		}, {
+			SequenceNo: 'startLeft8',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox1',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox2',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox3',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox5',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox6',
+			WorkState: 1
+		}, {
+			SequenceNo: 'checkBox7',
+			WorkState: 0
+		}, {
+			SequenceNo: 'checkBox8',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch1',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch2',
+			WorkState: 0
+		}, {
+			SequenceNo: 'switch3',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch4',
+			WorkState: 1
+		}, {
+			SequenceNo: 'switch5',
+			WorkState: 1
+		}]
+		console.log('1111', JSON.stringify(check))
+		// mqtt接收信息
+		var mqttData = ''
+		var lastTimeValue = mqttData;
+		var wsbroker = "mqtt.leanloop.net"; //mqtt websocket enabled broker
+		var wsport = 15675; // port for above
+
+		var client = new Paho.MQTT.Client(wsbroker, wsport, "/ws",
+			"myclientid_" + parseInt(Math.random() * 100, 10));
+
+		client.onConnectionLost = function(responseObject) {
+			console.log(responseObject.errorMessage)
+		};
+		// 接收信息返回值
+		client.onMessageArrived = function(message) {
+			//			console.log('5555',message.payloadString)
+			mqttData = JSON.parse(message.payloadString)
+			console.log(mqttData)
+			for(var i in mqttData) {
+				for(var j in check) {
+					//1运转  0停止运转
+					if(mqttData[i].SequenceNo == check[j].SequenceNo && mqttData[i].WorkState == 1) {
+						var checkBox = Snap("#" + mqttData[i].SequenceNo);
+						// 判断是否是文本类型
+						if(checkBox.type == 'text') {
+							console.log(checkBox)
+							//							checkBox.node.innerHTML = '运转正常'
+							checkBox.attr({
+								fill: '#669ccd'
+							})
+						} else {
+							checkBox.attr({
+								'xlink:href': '#leanloop-circle-svg'
+							})
+						}
+
+					}
+					if(mqttData[i].SequenceNo == check[j].SequenceNo && mqttData[i].WorkState == 0) {
+						var checkBox = Snap("#" + mqttData[i].SequenceNo);
+						// 判断是否是文本类型
+						if(checkBox.type == 'text') {
+							//							checkBox.node.innerHTML = '运转故障'
+							checkBox.attr({
+								fill: 'red'
+							})
+						} else {
+							checkBox.attr({
+								'xlink:href': '#leanloop-nocircle-svg',
+								fill: 'red'
+							})
+						}
+					}
+				}
+
+			}
+		};
+
+		var options = {
+			timeout: 3,
+			userName: "test",
+			password: "test",
+			onSuccess: function() {
+				client.subscribe('home/mqtt', {
+					qos: 0
+				});
+			},
+			onFailure: function(message) {
+				console.log(message.errorMessage);
+			}
+		};
+
+		if(location.protocol == "https:") {
+			options.useSSL = true;
+		}
+
+		client.connect(options);
+
+		//获取svg id
+		var svg = Snap("#tsd");
+		var myMatrix = new Snap.Matrix();
+		var s2 = Snap("#startLeft1");
+
+		//进水箱
+		var inletChestLeft = Snap('#inletChestLeft')
+		var inletChestRight = Snap('#inletChestRight')
+
+		//		inletChestRight.mouseover(function() {
+		//			//事件处理代码
+		//			//生成节点
+		//			var c1 = svg.paper.text(960, 25, '这是详情介绍')
+		//			var c2 = svg.paper.rect(950, 0, 300, 200)
+		//			c2.attr({
+		//				fill: 'white',
+		//				fillOpacity: .8,
+		//				stroke: "gray"
+		//			})
+		//			var g = svg.paper.g()
+		//			g.attr({
+		//				id: 'hover'
+		//			})
+		//			g.add(c2, c1)
+		//			//删除节点
+		//			var hover = Snap('#hover')
+		//			hover.mouseout(function() {
+		//				hover.remove()
+		//			})
+		//		});
+
+		inletChestLeft.click(function() {
+			//生成节点
+			//			var c1 = svg.paper.text(710, 25, '这是详情介绍')
+			//			var c2 = svg.paper.rect(700, 0, 300, 200)
+			//			c2.attr({
+			//				fill: 'white',
+			//				fillOpacity: .8,
+			//				stroke: "gray"
+			//			})
+			//			var g = svg.paper.g()
+			//			g.attr({
+			//				id: 'hoverHidden'
+			//			})
+			//			g.add(c2, c1)
+			//			$('#bg').show()
+			//			var htmls = ''
+			//			htmls = '<p>这是详情内容</p><p>123456</p>'
+			//			$('.sliderBar').html(htmls)
+			$('.sliderBar').animate({
+				right: '0px'
+			}, 500);
+
+		})
+		$('#close').click(function(e) {
+
+			//			$('#bg').hide()
+			$('.sliderBar').css({
+				right: '-500px'
+			})
+		})
+		//		s2.click(function() {
+		//			var checkBox = Snap("#checkBox1");
+		//			checkBox.attr({'xlink:href':'#leanloop-nocircle-svg'})
+		//		})
+		//		console.log(s1, s2)
+		//		var circle_1 = s.circle(200, 200, 140);
+		//		var circle_2 = s.circle(150, 200, 140);
+
+		//		var circles = s.group(circle_1, circle_2);
+		//
+		//		s2.attr({
+		//			fill: 'coral',
+		//			fillOpacity: .6
+		//		});
+		//		myMatrix.translate(100,0);
+		//		s2.transform(myMatrix)
+	</script>
+
+</html>
