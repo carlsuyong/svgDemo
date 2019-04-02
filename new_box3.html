@@ -4,109 +4,96 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<style>
-			/*点击时的样式*/
-			
-			html,
-			body {
-				width: 100%;
-				height: 100%;
-				overflow: hidden;
-			}
-			
-			#tsd {
-				width: 100%;
-				height: 100%;
-			}
-			
-			.water {
-				fill: red;
-				stroke-dasharray: 1000;
-				stroke-dashoffset: 1000;
-				animation: run 10s linear infinite;
-			}
-			
-			@keyframes dash {
-				to {
-					stroke-dashoffset: 0;
-				}
-			}
-			
-			@keyframes run {
-				from {
-					stroke-dasharray: 20, 5;
-				}
-				to {
-					stroke-dasharray: 40, 5;
-				}
-			}
-			
-			.starStyle {
-				animation: starAnim 4s linear infinite;
-			}
-			
-			@keyframes starAnim {
-				0% {
-					fill: red;
-				}
-				100% {
-					fill: blue;
-				}
-			}
-			/*.transform{
-				transform: rotate(45deg);
-			}*/
-			
-			.mysolid {
-				background-color: red;
-				stroke: black
-			}
-			
-			.position {
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: 1000;
-			}
-		</style>
+		
 	</head>
 
 	<body id='body'>
-
+		<link rel="stylesheet" type="text/css" href="css/commen.css"/>
 		<script src="js/snap.svg-min.js"></script>
 		<script src="js/mqttws31.js"></script>
 		<svg id='tsd' viewbox='0 0 1366 768'>
 			<defs>
 
 			</defs>
+			<polyline class="pipeline" points="20 20,120 20,120 50,20 50,20 20" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<polyline class="pipeline" points="20 60,120 60,120 90,20 90,20 60" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<text x="30" y="40" font-family="Verdana" font-size="11" fill="gray">室外温度：28℃</text>
+			<text x="30" y="80" font-family="Verdana" font-size="11" fill="gray">室外湿度：60%</text>
 			<!--第一个-->
-			<polyline class="pipeline" points="0 180,410 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="500 180,1300 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="500 250,700 250,700 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="420 250,220 250,220 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			
+			<polyline class="pipeline" points="30 180,390 180" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="30 180,390 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="525 180,1300 180" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="525 180,1300 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="700 600,700 505" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="700 600,700 505" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="700 495,700 250,525 250" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="700 495,700 250,525 250" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="390 250,220 250,220 495" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="390 250,220 250,220 495" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="220 505,220 600" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="220 505,220 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			<!--左侧二电热炉-->
 			
-			<polyline class="pipeline" points="410 500,100 500,100 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="520 500,830 500,830 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="140 180,140 500,390 500" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="140 180,140 500,390 500" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="525 500,790 500,790 180" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="525 500,790 500,790 180" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			
-			<polyline class="pipeline" points="0 600,410 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="520 600,1300 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<use  x="400" y="0" width='170' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
-			<use  x="400" y="350" width='170' height='400' xlink:href="selectSvg.svg#leanloop-Chassis-svg" />
+			<polyline class="pipeline" points="390 600,30 600" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="390 600,30 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1300 600,1050 600" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1300 600,1050 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1030 600,525 600" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1030 600,525 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<use  x="1045" y="320" transform='scale(0.4)' xlink:href="selectSvg.svg#leanloop-box9-svg" />
+			<polyline class="pipeline" points="390 115,525 115,525 320,390 320,390 115" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<text x="392" y="310" font-family="Verdana" font-size="10" fill="gray">板式水-水换热器PHE-2#-01</text>
+			
+			<use  x="1045" y="1170" transform='scale(0.4)'  xlink:href="selectSvg.svg#leanloop-box9-svg" />
+			<polyline class="pipeline" points="390 450,525 450,525 655,390 655,390 450" style="fill:transparent;stroke:gray;stroke-width:1" />
+			<text x="392" y="645" font-family="Verdana" font-size="10" fill="gray">板式水-水换热器PHE-2#-02</text>
+			
 			<!--右侧三开关-->
 			
-			<polyline class="pipeline" points="1030 420,950 420,950 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="950 510,1300 510" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="1070 420,1150 420,1150 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1030 420,950 420,950 600" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1030 420,950 420,950 600" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1300 510,1050 510" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1300 510,1050 510" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1020 510,950 510" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1020 510,950 510" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="1150 600,1150 420,1070 420" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="1150 600,1150 420,1070 420" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			
-			<use x="1400" y="650" transform="scale(0.6)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
-			<use x="1400" y="800" transform="scale(0.6)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
-			<use x="1400" y="950" transform="scale(0.6)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
+			<use x="-1940" y="-600" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
+			<use x="-1940" y="-750" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-pumb2-svg" />
+			<use x="-1940" y="-900" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
 			
-
+			<!--文字-->
+			<text x="1200" y="170" font-family="Verdana" font-size="10" fill="gray">2#楼冷冻水供水管</text>
+			<text x="1260" y="500" font-family="Verdana" font-size="10" fill="gray">补水</text>
+			<text x="1200" y="590" font-family="Verdana" font-size="10" fill="gray">2#楼冷冻水回水管</text>
 			
-
+			<text font-family="Verdana" font-size="11" fill="gray">
+				<tspan x="30" y="155">2#3#分水器</tspan>
+				<tspan x="30" y="170">300-CHSI-2013(2012)</tspan>
+			</text>
+			<text font-family="Verdana" font-size="11" fill="gray">
+				<tspan x="30" y="575">2#3#集水器</tspan>
+				<tspan x="30" y="590">300-CHRI-2013(2012)</tspan>
+			</text>
+			
+			<text x="985" y="465" font-family="Verdana" font-size="10" fill="gray">空调冷冻水循环泵CP-2#-01</text>
+			<text x="985" y="555" font-family="Verdana" font-size="10" fill="gray">空调冷冻水循环泵CP-2#-02</text>
+			<text x="985" y="645" font-family="Verdana" font-size="10" fill="gray">空调冷冻水循环泵CP-2#-03</text>
+			<!--温度-->
+			<polyline points="50 190,110 190,110 210,50 210,50 190" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="55" y="205" font-family="Verdana" font-size="11" fill="gray">100℃</text>
+			<polyline points="100 610,160 610,160 630,100 630,100 610" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="105" y="625" font-family="Verdana" font-size="11" fill="gray">100℃</text>
+			<polyline points="590 470,650 470,650 490,590 490,590 470" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="595" y="485" font-family="Verdana" font-size="11" fill="gray">100℃</text>
+			<polyline points="590 150,650 150,650 170,590 170,590 150" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<text x="595" y="165" font-family="Verdana" font-size="11" fill="gray">100℃</text>
 			
 		</svg>
 	</body>
