@@ -4,11 +4,11 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		
+
 	</head>
 
 	<body id='body'>
-		<link rel="stylesheet" type="text/css" href="css/commen.css"/>
+		<link rel="stylesheet" type="text/css" href="css/commen.css" />
 		<script src="js/snap.svg-min.js"></script>
 		<script src="js/mqttws31.js"></script>
 		<svg id='tsd' viewbox='0 0 1366 768'>
@@ -20,24 +20,30 @@
 			<text x="15" y="25" font-family="Verdana" font-size="11" fill="gray">室外温度：28℃</text>
 			<text x="15" y="55" font-family="Verdana" font-size="11" fill="gray">室外湿度：60%</text>
 			<!--左侧三机箱-->
-			
+
 			<use x="40" y="-130" width='400' height='800' xlink:href="selectSvg.svg#leanloop-box5-svg" />
 			<polyline class="pipeline" points="30 80,175 80,175 200,30 200,30 80" style="fill:transparent;stroke:gray;stroke-width:1" />
 			<text x="48" y="192" font-family="Verdana" font-size="10" fill="gray">风冷热泵机组ASHP-R-1</text>
-			
+
 			<use x="40" y="80" width='400' height='800' xlink:href="selectSvg.svg#leanloop-box5-svg" />
 			<polyline class="pipeline" points="30 290,175 290,175 410,30 410,30 290" style="fill:transparent;stroke:gray;stroke-width:1" />
 			<text x="48" y="402" font-family="Verdana" font-size="10" fill="gray">风冷热泵机组ASHP-R-2</text>
-			
+
 			<use x="40" y="290" width='400' height='800' xlink:href="selectSvg.svg#leanloop-box5-svg" />
 			<polyline class="pipeline" points="30 500,175 500,175 620,30 620,30 500" style="fill:transparent;stroke:gray;stroke-width:1" />
 			<text x="48" y="612" font-family="Verdana" font-size="10" fill="gray">风冷热泵机组ASHP-R-3</text>
-			
-			<polyline class="pipeline" points="365 363,365 110,175 110" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
-			<polyline class="water" points="365 363,365 110,175 110" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			<polyline class="pipeline" points="365 378,365 580,175 580" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
-			<polyline class="water" points="365 378,365 580,175 580" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			
+
+			<polyline class="pipeline" points="365 363,365 110,340 110" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="365 363,365 110,340 110" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="310 110,175 110" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<!--<polyline class="water" points="310 110,175 110" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="365 378,365 580,340 580" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="365 378,365 580,340 580" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="310 580,285 580" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<!--<polyline class="water" points="310 580,285 580" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="285 580,175 580" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<polyline class="water" points="285 580,175 580" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+
 			<!--第一-->
 			<polyline class="pipeline" points="175 160,285 160,285 363" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="175 160,285 160,285 363" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
@@ -53,7 +59,7 @@
 			<!--第三-->
 			<polyline class="pipeline" points="175 530,285 530" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="175 530,285 530" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			
+
 			<!--四个阀门-->
 			<!--第一个-->
 			<polyline class="pipeline" points="670 120,520 120,520 370" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
@@ -63,8 +69,10 @@
 			<polyline class="pipeline" points="850 370,850 570,670 570" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="850 370,850 570,670 570" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			<!--第四个-->
-			<polyline class="pipeline" points="670 570,520 570,520 370" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
-			<polyline class="water" points="670 570,520 570,520 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
+			<polyline class="pipeline" points="670 570,520 570,520 418" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<!--<polyline class="water" points="670 570,520 570,520 418" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+			<polyline class="pipeline" points="520 418,520 370" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<!--<polyline class="water" points="520 418,520 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
 			<polyline class="pipeline" points="850 270,710 270" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="850 270,710 270" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			<!--第二个-->
@@ -76,19 +84,16 @@
 			<polyline class="water" points="1300 370,850 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
 			<polyline class="pipeline" points="1300 250,1000 250,1000 370" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="1300 250,1000 250,1000 370" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			
+
 			<!--第三个-->
-			<polyline class="pipeline" points="665 420,520 420" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
-			<polyline class="water" points="665 420,520 420" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
-			
+			<polyline class="pipeline" points="665 420,523 420" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
+			<!--<polyline class="water" points="665 420,523 420" style="fill:transparent;stroke:#669ccd;stroke-width:5" />-->
+
 			<use x="-1340" y="-100" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
 			<use x="-1340" y="-350" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-pumb1-svg" />
 			<use x="-1340" y="-600" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-box3-svg" />
 			<use x="-1340" y="-850" transform="scale(0.6) rotate(-180,75,75)" xlink:href="selectSvg.svg#leanloop-pumb2-svg" />
-			
 
-			
-			
 			<!--热水炉-->
 			<polyline class="pipeline" points="1150 680,1150 575" style="fill:transparent;stroke:#2A679F;stroke-width:5" />
 			<polyline class="water" points="1150 680,1150 575" style="fill:transparent;stroke:#669ccd;stroke-width:5" />
@@ -117,21 +122,27 @@
 			<text x="640" y="615" font-family="Verdana" font-size="10" fill="gray">空调热⽔循环泵HP-1-4</text>
 			<!--温度-->
 			<polyline points="200 80,260 80,260 100,200 100,200 80" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 100,230 110" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="95" font-family="Verdana" font-size="11" fill="gray">100℃</text>
-			
+
 			<polyline points="200 170,260 170,260 190,200 190,200 170" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 160,230 170" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="185" font-family="Verdana" font-size="11" fill="gray">100℃</text>
-			
+
 			<polyline points="200 290,260 290,260 310,200 310,200 290" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 310,230 320" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="305" font-family="Verdana" font-size="11" fill="gray">100℃</text>
-			
+
 			<polyline points="200 380,260 380,260 400,200 400,200 380" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 370,230 380" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="395" font-family="Verdana" font-size="11" fill="gray">100℃</text>
-			
+
 			<polyline points="200 500,260 500,260 520,200 520,200 500" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 520,230 530" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="515" font-family="Verdana" font-size="11" fill="gray">100℃</text>
-			
+
 			<polyline points="200 590,260 590,260 610,200 610,200 590" style="fill:none;stroke:#669ccd;stroke-width:1" />
+			<polyline points="230 580,230 590" style="fill:none;stroke:#669ccd;stroke-width:1" />
 			<text x="205" y="605" font-family="Verdana" font-size="11" fill="gray">100℃</text>
 		</svg>
 	</body>
@@ -286,48 +297,48 @@
 		var inletChestLeft = Snap('#inletChestLeft')
 		var inletChestRight = Snap('#inletChestRight')
 
-		inletChestRight.mouseover(function() {
-			//事件处理代码
-			//生成节点
-			var c1 = svg.paper.text(960, 25, '这是详情介绍')
-			var c2 = svg.paper.rect(950, 0, 300, 200)
-			c2.attr({
-				fill: 'white',
-				fillOpacity: .8,
-				stroke: "gray"
-			})
-			var g = svg.paper.g()
-			g.attr({
-				id: 'hover'
-			})
-			g.add(c2, c1)
-			//删除节点
-			var hover = Snap('#hover')
-			hover.mouseout(function() {
-				hover.remove()
-			})
-		});
-
-		inletChestLeft.click(function() {
-			//生成节点
-			var c1 = svg.paper.text(710, 25, '这是详情介绍')
-			var c2 = svg.paper.rect(700, 0, 300, 200)
-			c2.attr({
-				fill: 'white',
-				fillOpacity: .8,
-				stroke: "gray"
-			})
-			var g = svg.paper.g()
-			g.attr({
-				id: 'hoverHidden'
-			})
-			g.add(c2, c1)
-			//删除节点
-			var hoverHidden = Snap('#hoverHidden')
-			hoverHidden.click(function() {
-				hoverHidden.remove()
-			})
-		})
+		//		inletChestRight.mouseover(function() {
+		//			//事件处理代码
+		//			//生成节点
+		//			var c1 = svg.paper.text(960, 25, '这是详情介绍')
+		//			var c2 = svg.paper.rect(950, 0, 300, 200)
+		//			c2.attr({
+		//				fill: 'white',
+		//				fillOpacity: .8,
+		//				stroke: "gray"
+		//			})
+		//			var g = svg.paper.g()
+		//			g.attr({
+		//				id: 'hover'
+		//			})
+		//			g.add(c2, c1)
+		//			//删除节点
+		//			var hover = Snap('#hover')
+		//			hover.mouseout(function() {
+		//				hover.remove()
+		//			})
+		//		});
+		//
+		//		inletChestLeft.click(function() {
+		//			//生成节点
+		//			var c1 = svg.paper.text(710, 25, '这是详情介绍')
+		//			var c2 = svg.paper.rect(700, 0, 300, 200)
+		//			c2.attr({
+		//				fill: 'white',
+		//				fillOpacity: .8,
+		//				stroke: "gray"
+		//			})
+		//			var g = svg.paper.g()
+		//			g.attr({
+		//				id: 'hoverHidden'
+		//			})
+		//			g.add(c2, c1)
+		//			//删除节点
+		//			var hoverHidden = Snap('#hoverHidden')
+		//			hoverHidden.click(function() {
+		//				hoverHidden.remove()
+		//			})
+		//		})
 
 		//		s2.click(function() {
 		//			var checkBox = Snap("#checkBox1");
